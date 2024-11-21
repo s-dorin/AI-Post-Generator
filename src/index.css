@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 dark:text-gray-100 bg-gradient-to-br from-primary-50 to-accent-50 dark:from-gray-900 dark:to-gray-800;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display dark:text-white;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    @apply bg-gradient-to-br from-primary-600/10 via-accent-500/5 to-transparent dark:from-primary-400/10 dark:via-accent-500/5 dark:to-transparent;
+  }
+
+  .glass-card {
+    @apply bg-white/20 backdrop-blur-lg border border-primary-200/30 
+           hover:border-primary-300/50 hover:shadow-lg
+           dark:bg-gray-900/40 dark:border-gray-700/50 
+           dark:hover:border-gray-600/50
+           transition-all duration-300;
+  }
+
+  .feature-card {
+    @apply glass-card p-6 rounded-2xl hover:transform hover:-translate-y-1;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 
+           rounded-lg font-medium transition-all duration-300
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-50 
+           dark:focus:ring-offset-gray-900;
+  }
+
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-primary-500 to-accent-500 
+           hover:from-primary-600 hover:to-accent-600 
+           text-white shadow-lg hover:shadow-xl
+           focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply btn bg-primary-100 hover:bg-primary-200 
+           text-primary-800 dark:bg-gray-800 dark:hover:bg-gray-700 
+           dark:text-gray-100 shadow-sm hover:shadow
+           focus:ring-primary-400;
+  }
+
+  .btn-danger {
+    @apply btn bg-gradient-to-r from-red-500 to-red-600
+           hover:from-red-600 hover:to-red-700
+           text-white shadow-lg hover:shadow-xl
+           focus:ring-red-500;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg
+           bg-white/20 backdrop-blur border border-primary-200/30 
+           focus:border-primary-500 focus:ring-2 focus:ring-primary-500 
+           dark:bg-gray-900/40 dark:border-gray-700/50
+           dark:focus:border-primary-400 dark:focus:ring-primary-400
+           placeholder-gray-500 dark:placeholder-gray-400
+           text-gray-800 dark:text-gray-100
+           transition-all duration-300;
+  }
+
+  .textarea-field {
+    @apply input-field resize-none;
+  }
+
+  .content-editor {
+    @apply w-full min-h-[400px] p-6 rounded-lg 
+           bg-white/5 backdrop-blur border border-primary-600/20 
+           focus:border-primary-500 focus:ring-2 focus:ring-primary-500 
+           resize-vertical text-gray-800 dark:text-gray-100 
+           transition-all duration-300
+           font-mono text-sm leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .scrollbar-custom {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.primary.400/50') transparent;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply bg-primary-400/50 dark:bg-primary-600/50 
+           hover:bg-primary-400 dark:hover:bg-primary-600
+           rounded-full transition-colors;
+  }
+}
+
+.prose-custom {
+  @apply prose prose-sm max-w-none
+         dark:prose-invert
+         prose-p:my-1
+         prose-headings:mb-2
+         prose-headings:text-primary-900 dark:prose-headings:text-gray-100
+         prose-p:text-gray-700 dark:prose-p:text-gray-200
+         prose-a:text-primary-600 dark:prose-a:text-primary-400
+         prose-strong:text-primary-900 dark:prose-strong:text-gray-100
+         prose-code:text-primary-800 dark:prose-code:text-gray-200
+         prose-pre:bg-white/5 dark:prose-pre:bg-gray-900/40
+         prose-pre:text-primary-800 dark:prose-pre:text-gray-200
+         prose-ol:text-gray-700 dark:prose-ol:text-gray-300
+         prose-ul:text-gray-700 dark:prose-ul:text-gray-300;
+}
